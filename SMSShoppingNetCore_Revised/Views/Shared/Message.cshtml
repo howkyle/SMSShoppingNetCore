@@ -1,0 +1,14 @@
+﻿@{
+    if (TempData["message"] != null)
+    {
+        if (TempData["message-status"].ToString() == "success")
+        {
+            <h6 class="alert alert-success" width="100%">@TempData["message"].ToString()</h6>
+        }
+        else if (TempData["message-status"].ToString() == "error")
+        {
+            <h6 class="alert alert-danger" width="100%">@TempData["message"].ToString()</h6>
+        }
+
+    }
+}

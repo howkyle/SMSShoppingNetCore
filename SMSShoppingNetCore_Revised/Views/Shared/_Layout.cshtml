@@ -1,0 +1,57 @@
+﻿@using BLL.Services
+@inject IUserService _userService;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <!-- <link href="~/css/site.css" rel="stylesheet" type="text/css" /> -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--<script src="~/Scripts/modernizr-2.6.2.js"></script> -->
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("SMS Shopping", "Index", "Landing", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    @{
+
+                        if (User.Identity.IsAuthenticated)
+                        {
+
+                            <li>@Html.ActionLink("View Cart", "ViewCart", "Product")</li>
+
+                            <li>@Html.ActionLink("Log out", "Logout", "Login")</li>
+
+                            <li> <p class="white">@User.Identity.Name </p></li> 
+                        }
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @Html.Partial("Message")
+        @RenderBody()
+    </div>
+    <hr />
+    <footer class="container">
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

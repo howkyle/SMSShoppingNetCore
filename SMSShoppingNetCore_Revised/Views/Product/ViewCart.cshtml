@@ -1,0 +1,66 @@
+﻿@model DAL.Models.Cart
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table" style=" margin-top:2%">
+    <tr>
+        <th>
+            Item
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Quantity
+        </th>
+        @*<th>
+
+        </th>*@
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+
+    <tr class="borderless">
+        <td>
+            @Html.ActionLink(item.Product.ProductName, "Details", new { id = item.Product.Id })
+            @Html.ActionLink("Remove -", "RemoveFromCart", new { id = item.Id }, new { @class = "btn btn-default btn-xs" })
+        </td>
+        <td>
+            $@Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            x @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        @*<td>
+            @Html.ActionLink("Remove -", "RemoveFromCart", new { id = item.Id }, new { @class = "btn btn-default" })
+        </td>*@
+    </tr>
+    }
+    <tr>
+        <td>
+            Total
+        </td>
+        <td>
+           $ @Model.Value
+        </td>
+        <td></td>
+        @*<td></td>*@
+    </tr>
+</table>
+@{
+    if (Model.Count!= 0)
+    {
+        @Html.ActionLink("Checkout", "Checkout", new { }, new { @class = "btn btn-default col-md-offset-10" })
+
+    }
+    else
+    {
+        @Html.ActionLink("Find Items To Add", "Index", new { }, new { @class = "btn btn-default col-md-offset-10" })
+
+    }
+}
+

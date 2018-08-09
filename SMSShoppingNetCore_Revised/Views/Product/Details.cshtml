@@ -1,0 +1,34 @@
+﻿@model DAL.Models.Product
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <table class="table">
+            <tr>
+                <td width="60%">
+                    <img src=@Html.DisplayFor(model => model.ProductImageUrl) alt="Alternate Text" class="img-thumbnail" style="max-width:500px;max-height:500px" />
+                </td>
+                <td width="40%">
+                    <h2> @Html.DisplayFor(model => model.ProductName)</h2>
+                    <h4>$@Html.DisplayFor(model => model.ProductPrice)</h4>
+                    <p> @Html.DisplayFor(model => model.ProductDescription)</p>
+                    <h4>@Html.ActionLink("Add +", "AddToCart", new { id = Model.Id }, new { @class = "btn btn-default" })</h4>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

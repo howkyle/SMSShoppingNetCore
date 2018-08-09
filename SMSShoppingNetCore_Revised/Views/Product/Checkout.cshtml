@@ -1,0 +1,35 @@
+﻿@model CheckOutViewModel
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="form-horizontal">
+    <div class="form">
+        <form action=@Url.Action("Checkout","Product") method="post">
+            @*<div class="form-group">
+                <label class="control-label col-md-4">Credit Card</label>
+                <div class="col-md-5">
+                    <input type="text" name="creditCardNum" placeholder="Enter Credit Card Number" class="form-control" />
+
+                </div>
+            </div>*@
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CreditCardNum, "Credit Card Number", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.CreditCardNum, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CreditCardNum, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-5">
+                    <input type="submit" value="Confirm Checkout" class="btn btn-default" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>

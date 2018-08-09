@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMSShoppingNetCore_Revised", "SMSShoppingNetCore_Revised\SMSShoppingNetCore_Revised.csproj", "{8B466421-5A8F-4B26-9799-27AAAEFCAAAC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{3D4C9766-546C-4690-9447-C47AD648507F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{16A9BB00-87F3-4D2C-8AC6-ACA0D8E59772}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B466421-5A8F-4B26-9799-27AAAEFCAAAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B466421-5A8F-4B26-9799-27AAAEFCAAAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B466421-5A8F-4B26-9799-27AAAEFCAAAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B466421-5A8F-4B26-9799-27AAAEFCAAAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D4C9766-546C-4690-9447-C47AD648507F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4C9766-546C-4690-9447-C47AD648507F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4C9766-546C-4690-9447-C47AD648507F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4C9766-546C-4690-9447-C47AD648507F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16A9BB00-87F3-4D2C-8AC6-ACA0D8E59772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16A9BB00-87F3-4D2C-8AC6-ACA0D8E59772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16A9BB00-87F3-4D2C-8AC6-ACA0D8E59772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16A9BB00-87F3-4D2C-8AC6-ACA0D8E59772}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {767825E7-8DC5-40B1-A3AA-3F876813AA53}
+	EndGlobalSection
+EndGlobal

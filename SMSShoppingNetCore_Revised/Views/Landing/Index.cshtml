@@ -1,0 +1,14 @@
+﻿
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<div class="landing">
+    <hr />
+    <ul class="col-md-6 col-md-offset-3">
+        <li>@Html.ActionLink("Log in", "Login", "Login", new { }, new { @class = "btn btn-default" })</li>
+        <li>@Html.ActionLink("Register", "Create", "SignUp", new { }, new { @class = "btn btn-default" })</li>
+    </ul>
+</div>
+
+
