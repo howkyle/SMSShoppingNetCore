@@ -57,5 +57,5 @@ public interface IUserService
     /// <param name="creditCardNumber"></param>
     /// <returns></returns>
    Task< Boolean> CheckoutAsync(String creditCardNumber);
-    void ConfirmCheckout();
+    Boolean ConfirmCheckout();
 }

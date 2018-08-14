@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SMSShoppingNetCore_Revised.Models;
 using System.Threading.Tasks;
@@ -9,10 +10,12 @@ namespace SMSShoppingNetCore_Revised.Controllers
     {
 
         private readonly IUserService  _userService;
+        private readonly IMessageViewService _messageViewService;
        
-        public LoginController(IUserService userService)
+        public LoginController(IUserService userService, IMessageViewService messageViewService)
         {
             _userService = userService;
+            _messageViewService = messageViewService;
             
         }
 
@@ -43,8 +46,7 @@ namespace SMSShoppingNetCore_Revised.Controllers
                 }
                 else
                 {
-                    TempData["message"] = "Incorrect username or password";
-                    TempData["message-status"] = "error";   
+                    _messageViewService.IncorrectLoginDetails();
                 }
             }
             return View();

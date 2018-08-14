@@ -1,14 +1,31 @@
-﻿@{
-    if (TempData["message"] != null)
-    {
-        if (TempData["message-status"].ToString() == "success")
+﻿@*@{
+        if (TempData["message"] != null)
         {
-            <h6 class="alert alert-success" width="100%">@TempData["message"].ToString()</h6>
+            if (TempData["message-status"].ToString() == "success")
+            {
+                <h6 class="alert alert-success" width="100%">@TempData["message"].ToString()</h6>
+            }
+            else if (TempData["message-status"].ToString() == "error")
+            {
+                <h6 class="alert alert-danger" width="100%">@TempData["message"].ToString()</h6>
+            }
+
         }
-        else if (TempData["message-status"].ToString() == "error")
+    }*@
+@using BLL.Services
+@inject IMessageViewService _messageViewService;
+@{
+    if (_messageViewService.GetMessage() != null)
+    {
+        if (_messageViewService.GetStatus() == "success")
         {
-            <h6 class="alert alert-danger" width="100%">@TempData["message"].ToString()</h6>
+            <h6 class="alert alert-success" width="100%">@_messageViewService.GetMessage()</h6>
+        }
+        else if (_messageViewService.GetStatus() == "error")
+        {
+            <h6 class="alert alert-danger" width="100%">@_messageViewService.GetMessage()</h6>
         }
 
     }
 }
+

@@ -148,6 +148,7 @@ namespace BLL.Services
                         Quantity = 1,
                         Price = product.ProductPrice
                     };
+                    
                     _db.CartItems.Add(cartItem);
 
                 }
@@ -248,15 +249,27 @@ namespace BLL.Services
             return result;
         }
 
-        public void ConfirmCheckout()
+        public Boolean ConfirmCheckout()
         {
-            var sessionUser = GetCurrentUserName();
-            var user = _db.Users.Include(u => u.Cart).ThenInclude(c => c.Items).Single(u => u.UserName == sessionUser);
-            var cartItems = user.Cart.Items;
-            user.Cart.Value = 0;
-            user.Cart.Count = 0;
-            cartItems.RemoveAll(x => true);
-            _db.SaveChanges();
+            Boolean result;
+            try
+            {
+                var sessionUser = GetCurrentUserName();
+                var user = _db.Users.Include(u => u.Cart).ThenInclude(c => c.Items).Single(u => u.UserName == sessionUser);
+                var cartItems = user.Cart.Items;
+                user.Cart.Value = 0;
+                user.Cart.Count = 0;
+                cartItems.RemoveAll(x => true);
+                _db.SaveChanges();
+                result = true;
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
+            
         }
 
         //public bool SignUp(string firstName, string lastName, string emailAddress, string password, string passwordConfirmation)
