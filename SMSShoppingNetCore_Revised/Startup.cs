@@ -42,6 +42,7 @@ namespace SMSShoppingNetCore_Revised
             services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDBContext>().AddDefaultTokenProviders();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IMessageViewService, MessageViewService>();
 
             services.ConfigureApplicationCookie(options =>
             {

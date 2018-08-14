@@ -44,7 +44,11 @@
     </div>
 
     <div class="container body-content">
-        @Html.Partial("Message")
+        @*@Html.Partial("Message")*@
+        @{
+            Html.RenderPartial("Message");
+        }
+
         @RenderBody()
     </div>
     <hr />

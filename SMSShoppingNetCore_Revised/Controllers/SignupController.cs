@@ -16,9 +16,12 @@ namespace SMSShoppingNetCore_Revised.Controllers
     public class SignUpController : Controller
     {
         private readonly IUserService _userService;
-        public SignUpController(IUserService userService)
+        private readonly IMessageViewService _messageViewService;
+
+        public SignUpController(IUserService userService, IMessageViewService messageViewService)
         {
             _userService = userService;
+            _messageViewService = messageViewService;
         }
 
         // GET: SignUp
@@ -48,16 +51,14 @@ namespace SMSShoppingNetCore_Revised.Controllers
 
                 if (result.Succeeded)
                 {
+                    _messageViewService.SuccessfulRegistration();
 
-                    TempData["message"] = "Registration successful, proceed to login";
-                    TempData["message-status"] = "success";
                     return RedirectToAction("Index", "Landing");
                 }
                 else
                 {
                     //action if user was not successfully added to the database
-                    TempData["message"] = "An error occurred during registration please try again";
-                    TempData["message-status"] = "error";
+                    _messageViewService.UnsuccesfullRegistration();
                 }
             }
             

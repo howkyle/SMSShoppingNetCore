@@ -17,11 +17,13 @@ namespace SMSShoppingNetCore_Revised.Controllers
         //private readonly DBContext db;
         private readonly IProductService _productService;
         private readonly IUserService _userService;
+        private readonly IMessageViewService _messageViewService;
 
-        public ProductController(IProductService productService, IUserService userService)
+        public ProductController(IProductService productService, IUserService userService, IMessageViewService messageViewService)
         {
             _productService = productService;
             _userService = userService;
+            _messageViewService = messageViewService;
         }
 
         // GET: Product
@@ -29,7 +31,7 @@ namespace SMSShoppingNetCore_Revised.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
-            ViewBag.sessionUser = User.Identity.Name;
+            //ViewBag.sessionUser = User.Identity.Name;
             var products = _productService.GetProducts();
             return View(products);
         }
@@ -56,13 +58,11 @@ namespace SMSShoppingNetCore_Revised.Controllers
             
             var result = _userService.AddToCart(id);
             if (result){
-                TempData["message"] = "Item added to cart";
-                TempData["message-status"] = "success";
+                _messageViewService.ItemAddedSuccess();
             }
             else
             {
-                TempData["message"] = "Item not added to cart";
-                TempData["message-status"] = "error";
+                _messageViewService.ItemAddedError();
             }
             
             return RedirectToAction("Index");
@@ -105,15 +105,9 @@ namespace SMSShoppingNetCore_Revised.Controllers
                 result = await _userService.CheckoutAsync(vm.CreditCardNum);
                 if (result)
                 {
-                    TempData["message"] = "Successful Checkout";
-                    TempData["message-status"] = "success";
+                    return RedirectToAction("ConfirmCheckout");
                 }
-                else
-                {
-                    TempData["message"] = "Error Checking out";
-                    TempData["message-status"] = "error";
-                }
-                return RedirectToAction("ConfirmCheckout");
+                
             }
 
             return View();
@@ -122,8 +116,18 @@ namespace SMSShoppingNetCore_Revised.Controllers
 
         public ActionResult ConfirmCheckout()
         {
-            
-            _userService.ConfirmCheckout();
+            Boolean result;
+
+            result = _userService.ConfirmCheckout();
+            if (result)
+            {
+                _messageViewService.SuccessfulCheckout();
+            }
+            else
+            {
+                _messageViewService.UnsuccessfulCheckout();
+            }
+
             return RedirectToAction("ViewCart");
         }
     }
