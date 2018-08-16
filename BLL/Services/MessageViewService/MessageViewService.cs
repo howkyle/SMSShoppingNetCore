@@ -94,6 +94,18 @@ namespace BLL.Services
             _tempData["message"] = "An error occurred during registration please try again";
             _tempData["message-status"] = "error";
         }
+
+        public void ItemRemovedSuccess()
+        {
+            _tempData["message"] = "Item removed from cart";
+            _tempData["message-status"] = "success";
+        }
+
+        public void ItemRemovedError()
+        {
+            _tempData["message"] = "Item not removed from cart";
+            _tempData["message-status"] = "error";
+        }
     }
 
     

@@ -71,9 +71,17 @@ namespace SMSShoppingNetCore_Revised.Controllers
 
         public ActionResult RemoveFromCart(int id)
         {
-            
-            _userService.RemoveFromCart(id);
+            Boolean result;
 
+            result = _userService.RemoveFromCart(id);
+            if (result)
+            {
+                _messageViewService.ItemRemovedSuccess();
+            }
+            else
+            {
+                _messageViewService.ItemRemovedError();
+            }
             return RedirectToAction("ViewCart");
         }
 

@@ -14,4 +14,6 @@ public interface IMessageViewService
     void UnsuccessfulCheckout();
     void SuccessfulRegistration();
     void UnsuccesfullRegistration();
+    void ItemRemovedSuccess();
+    void ItemRemovedError();
 }

@@ -12,10 +12,12 @@ namespace SMSShoppingNetCore_Revised.Controllers
     public class LandingController : Controller
     {
         private readonly IUserService _userService;
+
         public LandingController(IUserService userService)
         {
             _userService = userService;
         }
+
         // GET: Landing
         [AllowAnonymous]
         public ActionResult Index()
