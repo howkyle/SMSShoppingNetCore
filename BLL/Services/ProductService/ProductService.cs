@@ -14,13 +14,29 @@ namespace BLL.Services
 
         public List<Product> GetProducts()
         {
-            var products = db.Products.ToList();
+            List<Product> products;
+            try
+            {
+                products = db.Products.ToList();
+            }
+            catch
+            {
+                products = null;
+            }
+           
             return products;
         }
 
         public Product GetProduct(int id)
         {
-           var  prod = db.Products.Single(p => p.Id == id);
+            Product prod;
+            try
+            {
+                prod = db.Products.Single(p => p.Id == id);
+            }catch{
+                prod = null;
+            }
+           
            return prod;
         }
     }
