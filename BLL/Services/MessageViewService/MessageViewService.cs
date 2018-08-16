@@ -1,16 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BLL.Services
 {
     public class MessageViewService : IMessageViewService
     {
-        private string _status;
-        private string _message;
         private readonly IHttpContextAccessor _contextAccessor;
         private ITempDataDictionaryFactory _factory;
         private ITempDataDictionary _tempData;
