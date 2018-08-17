@@ -85,7 +85,7 @@ namespace SMSShoppingNetCore_Revised
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseIdentity();
