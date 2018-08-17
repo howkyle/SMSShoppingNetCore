@@ -9,9 +9,9 @@ namespace SMSShoppingNetCore_Revised.Models
 {
     public class LogInViewModel
     {
-        [Required]
+        [Required(ErrorMessage ="Email address is required")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Password is required")]
         public string Password { get; set; }
     }
 }

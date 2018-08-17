@@ -8,8 +8,8 @@ namespace SMSShoppingNetCore_Revised.Models
 {
     public class CheckOutViewModel
     {
-        [Required]
-        [CreditCard]
+        [Required(ErrorMessage ="Please enter a valid credit card number")]
+        [CreditCard (ErrorMessage ="Invalid credit car number") ]
         public String CreditCardNum { get; set; }
     }
 }
