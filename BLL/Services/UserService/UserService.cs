@@ -108,6 +108,10 @@ namespace BLL.Services
             {
                 result = await _signInManager.PasswordSignInAsync(user, password, true, false);
             }
+            else
+            {
+                result = SignInResult.Failed;
+            }
             return result;
            
         }
