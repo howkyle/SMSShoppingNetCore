@@ -26,7 +26,7 @@
 
     <tr class="borderless">
         <td>
-            @Html.ActionLink(item.Product.ProductName, "Details", new { id = item.Product.Id })
+            @Html.ActionLink(item.Product.ProductName, "Details", new { id = item.Product.Id }, new { @class="sms-title"})
             @Html.ActionLink("Remove -", "RemoveFromCart", new { id = item.Id }, new { @class = "btn btn-default btn-xs" })
         </td>
         <td>

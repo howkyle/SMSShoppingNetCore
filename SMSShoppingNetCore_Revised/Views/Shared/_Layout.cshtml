@@ -11,9 +11,14 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!--<script src="~/Scripts/modernizr-2.6.2.js"></script> -->
     <link href="~/css/site.css" rel="stylesheet" />
+    @*fonts*@
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Kreon|Pacifico" rel="stylesheet">
+
+
+
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body class="body">
+    <div class="navbar navbar-fixed-top sms-navbar">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -21,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("SMS Shopping", "Index", "Landing", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Smart Mobile Shopping", "Index", "Landing", new { area = "" }, new { @class = "sms-brand pacifico" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -30,11 +35,11 @@
                         if (User.Identity.IsAuthenticated)
                         {
 
-                            <li>@Html.ActionLink("View Cart", "ViewCart", "Product")</li>
+                            <li class="sms-nav-item pacifico">@Html.ActionLink("View Cart", "ViewCart", "Product")</li>
 
-                            <li>@Html.ActionLink("Log out", "Logout", "Login")</li>
+                            <li class="sms-nav-item pacifico">@Html.ActionLink("Log out", "Logout", "Login")</li>
 
-                            <li> <p class="white">@User.Identity.Name </p></li> 
+                            <li> <p class="light pacifico">@User.Identity.Name </p></li> 
                         }
                     }
 
@@ -43,11 +48,11 @@
         </div>
     </div>
 
-    <div class="container body-content">
-        @*@Html.Partial("Message")*@
-        @{
+    <div class="container body-content app-body">
+        @Html.Partial("Message")
+        @*@{
             Html.RenderPartial("Message");
-        }
+        }*@
 
         @RenderBody()
     </div>

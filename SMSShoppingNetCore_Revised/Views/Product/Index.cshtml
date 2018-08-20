@@ -12,7 +12,7 @@
     {
         <tr>
             <td width="20%">
-                <h4>@Html.ActionLink(item.ProductName, "Details", new { id = item.Id })</h4>
+                <h4>@Html.ActionLink(item.ProductName, "Details", new { id = item.Id }, new { @class="sms-title fredoka"})</h4>
                 <h4>$@Html.DisplayFor(modelItem => item.ProductPrice)</h4>
                 @{
                     if (User.Identity.IsAuthenticated)

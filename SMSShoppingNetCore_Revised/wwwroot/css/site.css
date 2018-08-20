@@ -23,6 +23,7 @@ textarea {
     max-width: 280px;
 }
 
+
 .landing {
     height: 50%;
 }
@@ -49,6 +50,70 @@ textarea {
     height: 100%;
 }
 
-.white{
-    color:darkgray;
+
+
+.body {
+    background-image: url(https://blog.shelving.com/wp-content/uploads/2017/07/warehouse-workflow.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.app-body {
+    background-color: cornsilk;
+    opacity: 0.95;
+    font-family: 'Kreon', serif;
+    color:saddlebrown;
+}
+
+.sms-navbar{
+    background-color:saddlebrown; 
+    opacity:0.90;
+    border-color:cornsilk;
+}
+
+a.sms-brand{
+    color: cornsilk;
+    font-size: 250%; 
+}
+
+a.sms-brand:hover{
+    text-decoration:none;
+}
+
+.light, .sms-nav-item a{
+    color: cornsilk;
+}
+
+.sms-nav-item a:hover{
+    color:brown;
+}
+
+/*fonts*/
+
+.pacifico{
+    font-family:'Pacifico', cursive;
+}
+
+.fredoka {
+    font-family: 'Fredoka One', cursive;
+}
+
+.kreon {
+    font-family: 'Kreon', serif;
+}
+
+/*overrides*/
+.icon-bar{
+    background-color: cornsilk;
+    border-color:saddlebrown;
+}
+
+.btn{
+    background-color:saddlebrown;
+    color:cornsilk;
+}
+
+.sms-title {
+    color: brown;
 }
