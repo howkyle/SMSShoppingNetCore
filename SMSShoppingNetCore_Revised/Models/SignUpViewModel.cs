@@ -56,9 +56,9 @@ namespace SMSShoppingNetCore_Revised.Models
 
             if (model.Password != null)
             {
-                if (!model.Password.Any(char.IsSymbol))
+                if (!(model.Password.Any(char.IsSymbol) || model.Password.Any(char.IsPunctuation)))
                 {
-                    return new ValidationResult("Password needs to contain a symbol.");
+                    return new ValidationResult("Password needs to contain a symbol or punctuation mark.");
                 }
             }
             

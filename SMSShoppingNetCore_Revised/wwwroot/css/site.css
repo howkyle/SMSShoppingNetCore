@@ -28,22 +28,22 @@ textarea {
     height: 50%;
 }
 
-    .landing ul {
-        padding: 10%;
-        border: solid 1px black;
-        margin-top: 5%;
-        list-style: none;
-    }
+.landing ul {
+    padding: 10%;
+    /*border: solid 1px black;*/
+    margin-top: 5%;
+    list-style: none;
+}
 
-    .landing a {
-        width: 100%;
-    }
+.landing a {
+    width: 100%;
+}
 
 .form {
     min-height: 50%;
     padding: 10%;
     margin-top: 5%;
-    border: solid 1px black;
+    /*border: solid 1px black;*/
 }
 
 .main-content {
@@ -60,34 +60,12 @@ textarea {
 }
 
 .app-body {
-    background-color: ghostwhite;
+    background-color: white;
     opacity: 0.95;
     font-family: 'Kreon', serif;
     color:saddlebrown;
 }
 
-.sms-navbar{
-    background-color:saddlebrown; 
-    opacity:0.90;
-    border-color:cornsilk;
-}
-
-a.sms-brand{
-    color: cornsilk;
-    font-size: 250%; 
-}
-
-a.sms-brand:hover{
-    text-decoration:none;
-}
-
-.light, .sms-nav-item a{
-    color: cornsilk;
-}
-
-.sms-nav-item a:hover{
-    color:brown;
-}
 
 /*fonts*/
 
@@ -114,6 +92,42 @@ a.sms-brand:hover{
     color:cornsilk;
 }
 
+.thumbnail{
+    height:250px;
+}
+
+/*ends overrides*/
+
+
+/*custom*/
 .sms-title {
+    color: brown;
+}
+
+.sms-product{
+    margin-top:5%;
+    margin-bottom:5%;
+}
+
+.sms-navbar {
+    background-color: saddlebrown;
+    opacity: 0.90;
+    border-color: cornsilk;
+}
+
+a.sms-brand {
+    color: cornsilk;
+    font-size: 250%;
+}
+
+a.sms-brand:hover {
+    text-decoration: none;
+}
+
+.light, .sms-nav-item a {
+    color: cornsilk;
+}
+
+.sms-nav-item a:hover {
     color: brown;
 }

@@ -32,15 +32,21 @@
                 <ul class="nav navbar-nav navbar-right">
                     @{
 
-                        if (User.Identity.IsAuthenticated)
-                        {
+        if (User.Identity.IsAuthenticated)
+        {
 
-                            <li class="sms-nav-item pacifico">@Html.ActionLink("View Cart", "ViewCart", "Product")</li>
+                <li class="sms-nav-item pacifico">@Html.ActionLink("View Cart", "ViewCart", "Product")</li>
 
-                            <li class="sms-nav-item pacifico">@Html.ActionLink("Log out", "Logout", "Login")</li>
+                <li class="sms-nav-item pacifico">@Html.ActionLink("Log out", "Logout", "Login")</li>
 
-                            <li> <p class="light pacifico">@User.Identity.Name </p></li> 
-                        }
+                <li> <p class="light pacifico">@User.Identity.Name </p></li>
+}
+else
+{
+                <li class="sms-nav-item pacifico" >@Html.ActionLink("Log in", "Login", "Login", new { }, new { @class = "btn btn-default" })</li>
+                <li class="sms-nav-item pacifico" >@Html.ActionLink("Register", "Create", "SignUp", new { }, new { @class = "btn btn-default" })</li>
+
+}
                     }
 
                 </ul>
